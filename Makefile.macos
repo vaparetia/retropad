@@ -1,0 +1,17 @@
+APP=retropad
+SRC=retropad_mac.m
+CFLAGS=-Wall -Wextra -fobjc-arc
+FRAMEWORKS=-framework Cocoa -framework UniformTypeIdentifiers
+
+all: $(APP)
+
+$(APP): $(SRC)
+	clang $(CFLAGS) $(SRC) $(FRAMEWORKS) -o $(APP)
+
+run: $(APP)
+	./$(APP)
+
+clean:
+	rm -f $(APP)
+
+.PHONY: all run clean
