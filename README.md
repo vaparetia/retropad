@@ -35,9 +35,9 @@ Artifacts end up in the repo root (`retropad.exe`, object files, and `retropad.r
 ## Build on macOS (Cocoa port)
 The Windows UI stays unchanged; macOS uses a small Cocoa implementation in `retropad_mac.m`.
 - Prerequisite: Xcode Command Line Tools (`xcode-select --install`), which provide `clang` and the Cocoa framework headers.
-- Build with GNU Make: `make -f Makefile.macos`
-- Or build manually: `clang -Wall -Wextra -fobjc-arc retropad_mac.m -framework Cocoa -framework UniformTypeIdentifiers -o retropad`
-- Run: `./retropad`
+- Build with GNU Make: `make -f Makefile.macos` (outputs `binaries/retropad_macos`)
+- Or build manually: `clang -Wall -Wextra -fobjc-arc retropad_mac.m -framework Cocoa -framework UniformTypeIdentifiers -o binaries/retropad_macos`
+- Run: `./binaries/retropad_macos`
 - Notes: Word wrap and status bar toggles are supported; Go To Line is disabled while word wrap is on (like Notepad). Find/replace uses the standard macOS find panel. Files open with the encoding Cocoa detects; saves default to UTF-8 if no BOM/encoding was detected.
 
 ## Run

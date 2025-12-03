@@ -1,17 +1,20 @@
-APP=retropad
+APP=retropad_macos
 SRC=retropad_mac.m
+OUTDIR=binaries
+TARGET=$(OUTDIR)/$(APP)
 CFLAGS=-Wall -Wextra -fobjc-arc
 FRAMEWORKS=-framework Cocoa -framework UniformTypeIdentifiers
 
-all: $(APP)
+all: $(TARGET)
 
-$(APP): $(SRC)
-	clang $(CFLAGS) $(SRC) $(FRAMEWORKS) -o $(APP)
+$(TARGET): $(SRC)
+	mkdir -p $(OUTDIR)
+	clang $(CFLAGS) $(SRC) $(FRAMEWORKS) -o $(TARGET)
 
-run: $(APP)
-	./$(APP)
+run: $(TARGET)
+	./$(TARGET)
 
 clean:
-	rm -f $(APP)
+	rm -f $(TARGET)
 
 .PHONY: all run clean
